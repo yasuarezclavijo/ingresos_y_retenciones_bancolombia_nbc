@@ -1,0 +1,8 @@
+{
+  "welcomeFile": "combancolombiaincomeRetentions/",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": []
+}
