@@ -18,15 +18,13 @@ function (Controller, JSONModel) {
             jQuery.sap.addUrlWhitelist("blob");
             this.pdfViewer = this.getView().byId("viewerIncomeRetentions");
             this.pdfViewer.setVisible(false);
-            const USERNAME = 'YEANSUAR';
-            const PASSWORD = 'Ixerv2022*';
             var aData = jQuery.ajax({
                 type: "GET",
                 url: "/zhcmgw_dataemployee_srv/ZHCMS_DATAEMPLOYEESet?sap-client=100&search=00000042&$format=json",
                 dataType: "json",
                 success: function(data, textStatus, jqXHR) {
                     alert("success to post");
-                } 
+                }
             });
         },
         onCorrectPathClick: function() {
