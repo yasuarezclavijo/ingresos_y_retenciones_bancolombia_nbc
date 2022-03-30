@@ -1,0 +1,77 @@
+<mvc:View controllerName="com.bancolombia.incomeRetentions.controller.IncomeAndRetentions"
+  displayBlock="true"
+  xmlns:mvc="sap.ui.core.mvc"
+		xmlns:core="sap.ui.core"
+		xmlns:l="sap.ui.layout"
+		xmlns:m="sap.m"
+		xmlns:f="sap.ui.layout.form"
+    xmlns:fb="sap.ui.comp.filterbar">
+
+    <l:Grid defaultSpan="L12 M12 S12" width="auto">
+      <l:content>
+        <m:VBox class="sapUiSmallMargin">
+          <f:Form id="FormToolbar"
+            editable="true"
+            ariaLabelledBy="Title1">
+            <f:layout>
+              <f:ResponsiveGridLayout
+                labelSpanXL="12"
+                labelSpanL="12"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="6"
+                emptySpanL="6"
+                emptySpanM="6"
+                emptySpanS="6"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+              <f:FormContainer ariaLabelledBy="Title1">
+                <f:formElements>
+                  <f:FormElement label="Sociedad emisora">
+                    <f:fields>
+                      <m:Select id="issuing" class="select_bc">
+                        <m:items>
+                          <core:Item text="Colombia" key="Colombia"/>
+                          <core:Item text="Panama" key="Panama"/>
+                        </m:items>
+                      </m:Select>
+                    </f:fields>
+                  </f:FormElement>
+                </f:formElements>
+              </f:FormContainer>
+              <f:FormContainer ariaLabelledBy="Title2">
+                <f:formElements>
+                  <f:FormElement label="Seleccione el año gravable">
+                    <f:fields>
+                      <m:Select id="yearTaxable" class="select_bc">
+                        <m:items>
+                          <core:Item text="2022" key="2022"/>
+                          <core:Item text="2021" key="2021"/>
+                          <core:Item text="2020" key="2020"/>
+                        </m:items>
+                      </m:Select>
+                    </f:fields>
+                  </f:FormElement>
+                </f:formElements>
+              </f:FormContainer>
+            </f:formContainers>
+          </f:Form>
+        </m:VBox>
+        <m:FlexBox alignItems="Center" justifyContent="Center">
+          <m:items>
+            <m:Button class="btn_form"  type="Accept" press="onCorrectPathClick" text="Generar" width="100%" />
+          </m:items>
+        </m:FlexBox>
+        <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false"  width="75%">
+          <m:layoutData>
+            <m:FlexItemData growFactor="1" />
+          </m:layoutData>
+        </m:PDFViewer>
+      </l:content>
+	</l:Grid>
+</mvc:View>

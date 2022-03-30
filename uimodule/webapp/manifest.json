@@ -33,7 +33,10 @@
       "minUI5Version": "1.60.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.ui.comp": {},
+				"sap.f": {},
+				"sap.ui.layout": {}
       }
     },
     "contentDensities": {
@@ -67,25 +70,25 @@
       },
       "routes": [
         {
-          "name": "RouteMainView",
-          "pattern": "RouteMainView",
+          "name": "IncomeAndRetentions",
+          "pattern": "RouteIncomeAndRetentions",
           "target": [
-            "TargetMainView"
+            "TargetIncomeAndRetentions"
           ]
         }
       ],
       "targets": {
-        "TargetMainView": {
+        "TargetIncomeAndRetentions": {
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "MainView",
-          "viewName": "MainView"
+          "viewId": "IncomeAndRetentions",
+          "viewName": "IncomeAndRetentions"
         }
       }
     },
     "rootView": {
-      "viewName": "com.bancolombia.incomeRetentions.view.MainView",
+      "viewName": "com.bancolombia.incomeRetentions.view.IncomeAndRetentions",
       "type": "XML",
       "async": true,
       "id": "MainView"
