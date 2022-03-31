@@ -9,7 +9,8 @@
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
-    "resources": "resources.json"
+    "resources": "resources.json",
+    "years_to_show": 10
   },
   "sap.ui": {
     "technology": "UI5",

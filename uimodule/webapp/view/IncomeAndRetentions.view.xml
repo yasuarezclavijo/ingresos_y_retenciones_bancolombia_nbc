@@ -32,13 +32,15 @@
             <f:formContainers>
               <f:FormContainer ariaLabelledBy="Title1">
                 <f:formElements>
-                  <f:FormElement label="Sociedad emisora">
+                  <f:FormElement label="{i18n>issuingcompanyLabel}">
                     <f:fields>
-                      <m:Select id="issuing" class="select_bc">
-                        <m:items>
-                          <core:Item text="Colombia" key="Colombia"/>
-                          <core:Item text="Panama" key="Panama"/>
-                        </m:items>
+                      <m:Select id="issuing" class="select_bc"
+                        forceSelection="false"
+                        items="{
+                          path: '/Societies',
+                          sorter: { path: 'label' }
+                        }">
+                          <core:Item key="{id}" text="{label}" />
                       </m:Select>
                     </f:fields>
                   </f:FormElement>
@@ -46,13 +48,16 @@
               </f:FormContainer>
               <f:FormContainer ariaLabelledBy="Title2">
                 <f:formElements>
-                  <f:FormElement label="Seleccione el año gravable">
+                  <f:FormElement label="{i18n>yeartaxLabel}">
                     <f:fields>
-                      <m:Select id="yearTaxable" class="select_bc">
+                      <m:Select id="yearTaxable" class="select_bc"
+                        forceSelection="false"
+                        items="{
+                          path: '/Years',
+                          sorter: { path: 'label', descending: true }
+                        }">
                         <m:items>
-                          <core:Item text="2022" key="2022"/>
-                          <core:Item text="2021" key="2021"/>
-                          <core:Item text="2020" key="2020"/>
+                          <core:Item key="{id}" text="{label}" />
                         </m:items>
                       </m:Select>
                     </f:fields>
@@ -64,7 +69,7 @@
         </m:VBox>
         <m:FlexBox alignItems="Center" justifyContent="Center">
           <m:items>
-            <m:Button class="btn_form"  type="Accept" press="onCorrectPathClick" text="Generar" width="100%" />
+            <m:Button class="btn_form"  type="Accept" press="onCorrectPathClick" text="{i18n>submitIncomeRetentions}" width="100%" />
           </m:items>
         </m:FlexBox>
         <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false"  width="75%">

@@ -36,8 +36,8 @@ server:
       configuration:
         baseUri: https://lbcldwdase04.apps.bancolombia.corp:1443/sap/opu/odata/sap/zhcmgw_dataemployee_srv
         strictSSL: false
-        username: YEANSUAR
-        password: Ixerv2022*
+        username: env:XYZ_USER
+        password: env:XYZ_PASSWORD
         httpHeaders:
           Any-Header: AnyHeader
 builder:
