@@ -4,33 +4,32 @@
 		xmlns:core="sap.ui.core"
 		xmlns:l="sap.ui.layout"
 		xmlns:m="sap.m"
+    xmlns:tnt="sap.tnt"
 		xmlns:f="sap.ui.layout.form"
     xmlns:fb="sap.ui.comp.filterbar">
-
+    <tnt:ToolHeader height="4rem">
+      <m:Image src="./img/Logo-Bancolombia-BLANCO.png" width="10rem"/>
+      <m:Text text="{i18n>title}" wrapping="false" />
+    </tnt:ToolHeader>
     <l:Grid defaultSpan="L12 M12 S12" width="auto">
       <l:content>
-        <m:VBox class="sapUiSmallMargin">
+        <m:VBox class="sapUiSmallMargin" justifyContent ='Center'>
           <f:Form id="FormToolbar"
-            editable="true"
-            ariaLabelledBy="Title1">
+            editable="true">
             <f:layout>
               <f:ResponsiveGridLayout
-                labelSpanXL="12"
-                labelSpanL="12"
-                labelSpanM="12"
-                labelSpanS="12"
-                adjustLabelSpan="false"
-                emptySpanXL="6"
-                emptySpanL="6"
-                emptySpanM="6"
-                emptySpanS="6"
-                columnsXL="2"
-                columnsL="2"
-                columnsM="2"
+                labelSpanXL="{/grid/labelSpanXL}"
+                labelSpanL="{/grid/labelSpanL}"
+                labelSpanM="{/grid/labelSpanM}"
+                labelSpanS="{/grid/labelSpanS}"
+                columnsXL="{/grid/columnsXL}"
+                columnsL="{/grid/columnsL}"
+                columnsM="{/grid/columnsM}"
                 singleContainerFullSize="false" />
             </f:layout>
             <f:formContainers>
-              <f:FormContainer ariaLabelledBy="Title1">
+              <!-- issuing company -->
+              <f:FormContainer>
                 <f:formElements>
                   <f:FormElement label="{i18n>issuingcompanyLabel}">
                     <f:fields>
@@ -46,7 +45,9 @@
                   </f:FormElement>
                 </f:formElements>
               </f:FormContainer>
-              <f:FormContainer ariaLabelledBy="Title2">
+              <!-- end issuing company -->
+              <!-- Year taxable -->
+              <f:FormContainer>
                 <f:formElements>
                   <f:FormElement label="{i18n>yeartaxLabel}">
                     <f:fields>
@@ -64,19 +65,62 @@
                   </f:FormElement>
                 </f:formElements>
               </f:FormContainer>
+              <!-- End year taxable -->
+              <!-- Payroll area -->
+              <f:FormContainer visible="{/showFieldsExtra}">
+                <f:formElements>
+                  <f:FormElement label="{i18n>payrollArea}">
+                    <f:fields>
+                      <m:Select id="payrollArea" class="select_bc"
+                        forceSelection="false"
+                        items="{
+                          path: '/payrollArea',
+                          sorter: { path: 'label', descending: true }
+                        }">
+                        <m:items>
+                          <core:Item key="{id}" text="{label}" />
+                        </m:items>
+                      </m:Select>
+                    </f:fields>
+                  </f:FormElement>
+                </f:formElements>
+              </f:FormContainer>
+              <!-- End payroll area -->
+              <!-- Subtype area -->
+              <f:FormContainer visible="{/showFieldsExtra}">
+                <f:formElements>
+                  <f:FormElement label="{i18n>subtype}">
+                    <f:fields>
+                      <m:Select id="subtype" class="select_bc"
+                        forceSelection="false"
+                        items="{
+                          path: '/subtype',
+                          sorter: { path: 'label', descending: true }
+                        }">
+                        <m:items>
+                          <core:Item key="{id}" text="{label}" />
+                        </m:items>
+                      </m:Select>
+                    </f:fields>
+                  </f:FormElement>
+                </f:formElements>
+              </f:FormContainer>
+              <!-- End subtype area -->
             </f:formContainers>
           </f:Form>
         </m:VBox>
         <m:FlexBox alignItems="Center" justifyContent="Center">
           <m:items>
-            <m:Button class="btn_form"  type="Accept" press="onCorrectPathClick" text="{i18n>submitIncomeRetentions}" width="100%" />
+            <m:Button class="btn_form" type="Accept" press="onCorrectPathClick" text="{i18n>submitIncomeRetentions}" />
           </m:items>
         </m:FlexBox>
-        <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false"  width="75%">
-          <m:layoutData>
-            <m:FlexItemData growFactor="1" />
-          </m:layoutData>
-        </m:PDFViewer>
+        <m:FlexBox alignItems="Center" justifyContent="Center">
+          <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false">
+            <m:layoutData>
+              <m:FlexItemData growFactor="1" />
+            </m:layoutData>
+          </m:PDFViewer>
+        </m:FlexBox>
       </l:content>
 	</l:Grid>
 </mvc:View>

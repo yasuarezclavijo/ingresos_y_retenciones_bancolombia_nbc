@@ -31,13 +31,13 @@ server:
         xsappJson: webapp/xs-app.json
         destinations: []
     - name: ui5-middleware-simpleproxy
-      mountPath: /zhcmgw_dataemployee_srv/
+      mountPath: /sap/
       afterMiddleware: compression
       configuration:
-        baseUri: https://lbcldwdase04.apps.bancolombia.corp:1443/sap/opu/odata/sap/zhcmgw_dataemployee_srv
+        baseUri: https://lbcldwdase04.apps.bancolombia.corp:1443/sap/opu/odata/sap
         strictSSL: false
-        username: env:XYZ_USER
-        password: env:XYZ_PASSWORD
+        username: CRAHURTA
+        password: Ixerv2022**
         httpHeaders:
           Any-Header: AnyHeader
 builder:
