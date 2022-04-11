@@ -14,6 +14,15 @@
     <l:Grid defaultSpan="L12 M12 S12" width="auto">
       <l:content>
         <m:VBox class="sapUiSmallMargin" justifyContent ='Center'>
+          <m:VBox id="boxmessage" justifyContent ='Center' visible="false">
+            <m:MessageStrip
+              text="{/messageTextStrip}"
+              type="{/messageTypeStrip}"
+              showIcon="true"
+              showCloseButton="true"
+              class="sapUiMediumMarginBottom">
+            </m:MessageStrip>
+          </m:VBox>
           <f:Form id="FormToolbar"
             editable="true">
             <f:layout>
@@ -109,13 +118,14 @@
             </f:formContainers>
           </f:Form>
         </m:VBox>
-        <m:FlexBox alignItems="Center" justifyContent="Center">
+        <m:FlexBox id="buttonContainer" alignItems="Center" justifyContent="Center">
           <m:items>
-            <m:Button class="btn_form" type="Accept" press="onCorrectPathClick" text="{i18n>submitIncomeRetentions}" />
+            <m:Button class="btn_form" type="Accept" press="onCorrectPathClick" text="{i18n>submitIncomeRetentions}" visible="{/buttonVisibility}"/>
+            <m:BusyIndicator size="1.0rem" class="sapUiMediumMarginBegin" visible="{/busyIndicatorVisibility}" />
           </m:items>
         </m:FlexBox>
         <m:FlexBox alignItems="Center" justifyContent="Center">
-          <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false">
+          <m:PDFViewer id="viewerIncomeRetentions" class="viewer-center" source="{/Source}" title="{/Title}" height="{/Height}" showDownloadButton="false" errorPlaceholderMessage="{i18n>errorLoadPdf}">
             <m:layoutData>
               <m:FlexItemData growFactor="1" />
             </m:layoutData>

@@ -10,7 +10,8 @@
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
     "resources": "resources.json",
-    "years_to_show": 10
+    "years_to_show": 10,
+    "sap_client": "112"
   },
   "sap.ui": {
     "technology": "UI5",
