@@ -131,12 +131,15 @@ function (Controller, JSONModel, Log) {
                 }
             });
             /**
-             * Llamado a variable en manifest.json de cuantos años se deben mostrar y alimentar la lista de años disponibles para mostar el certificado.
+             * Configuración para soporte base64
              */
             jQuery.sap.addUrlWhitelist("blob");
             this.pdfViewer = this.getView().byId("viewerIncomeRetentions");
             this.pdfViewer.setVisible(false);
             this._oModel.setProperty("/Societies", societies);
+            /**
+             * Llamado a variable en manifest.json de cuantos años se deben mostrar y alimentar la lista de años disponibles para mostar el certificado.
+             */
             var valueYearToShow = this.getOwnerComponent().getManifestEntry("/sap.app/years_to_show");
             const currentYear = new Date().getFullYear();
             var years = [];
@@ -188,6 +191,9 @@ function (Controller, JSONModel, Log) {
                 let base64EncodedPDF = null;
                 var that = this;
                 this.showMsgStrip(false);
+                /**
+                 * Llamado de endpoint PDF segun configuración previa detectada por país
+                 */
                 jQuery.ajax({
                     type: "GET",
                     url: endpointB64,
