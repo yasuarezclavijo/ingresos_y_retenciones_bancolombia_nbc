@@ -70,7 +70,7 @@ function (Controller, JSONModel, Log) {
              */
             jQuery.ajax({
                 type: "GET",
-                url: `/sap/zhcmgw_dataemployee_srv/ZHCMS_DATAEMPLOYEESet?sap-client=${that.sapClient}&search=${userPA}&\$format=json`,
+                url: `/sap/zhcmgw_dataemployee_srv/ZHCMS_DATAEMPLOYEESet?sap-client=${that.sapClient}&search=${userCO}&\$format=json`,
                 dataType: "json",
                 async: false,
                 success: function(dataEmployee, textStatus, jqXHR) {
